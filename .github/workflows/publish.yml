@@ -1,0 +1,48 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  getinfo:
+    runs-on: ubuntu-latest
+    outputs:
+      npmtag: ${{ steps.data.outputs }}
+    steps:
+      - uses: actions/checkout@v2
+        working-directory: ./publish
+      - run: node publish/version.js
+        id: data
+
+  publish-npm:
+      needs: getinfo
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 12
+            registry-url: https://registry.npmjs.org/
+        - run: yarn install --frozen-lockfile
+        - run: yarn build
+        - run: npm publish --tag $TAG
+          env:
+            TAG: ${{ needs.getinfo.outputs.npmtag }}
+            NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
+
+  publish-gh:
+      needs: getinfo
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 12
+            registry-url: https://npm.pkg.github.com/
+        - run: yarn install --frozen-lockfile
+        - run: yarn build
+        - run: npm publish --tag $TAG
+          env:
+            TAG: ${{ needs.getinfo.outputs.npmtag }}
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
