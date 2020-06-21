@@ -2,7 +2,7 @@
 
 This addon provides a decorator and hook to consume the `storyContext` and `storyFn` of the current active story anywhere in the render tree.
 
-### Instalaltion
+### Installation
 
 either with NPM or Yarn:
 
