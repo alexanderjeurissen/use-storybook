@@ -78,3 +78,5 @@ addDecorator((storyFn, storyContext) => {
   );
 });
 ```
+
+This provider signature is exactly what the `<StoryProvider` component provides.
