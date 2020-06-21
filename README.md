@@ -1,4 +1,5 @@
 # useStorybook - provider & hook
+![Publish](https://github.com/alexanderjeurissen/use-storybook/workflows/Publish/badge.svg?event=release)
 
 This addon provides a decorator and hook to consume the `storyContext` and `storyFn` of the current active story anywhere in the render tree.
 It's especially useful when you want to inspect the story content, or use parts of the storyContext in utility functions or event tracking.
