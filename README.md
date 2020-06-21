@@ -1,29 +1,34 @@
 # useStorybook - provider & hook
 
 This addon provides a decorator and hook to consume the `storyContext` and `storyFn` of the current active story anywhere in the render tree.
+It's especially useful when you want to inspect the story content, or use parts of the storyContext in utility functions or event tracking.
 
 ### Installation
 
 either with NPM or Yarn:
 
-`yarn add story-context-provider`
+`yarn add use-storybook`
 
 or
 
-`npm install --save story-context-provider`
+`npm install --save use-storybook`
 
-### Usage
+### Basic usage
 
-Add this addon as a decorator in `./storybook/preview.js`:
+A HOC is provided to make hooking the provider into your stories is as seamless as possible:
+
+Add the HOC as a decorator in `./storybook/preview.js`:
 
 ```js
+import { withStoryContext } from 'use-storybook';
+
 addDecorator(withStoryContext);
 ```
 
 Use the provided hook anywhere in the story render tree:
 
 ```jsx
-import { useStorybook } from 'story-context-provider';
+import { useStorybook } from 'use-storybook';
 
 export default {
   title: "Components|my-component",
@@ -34,4 +39,42 @@ export const Default = () => {
   
   ...
 }
+```
+
+### Advanced usage
+
+There are cases where more finegrained control is desired. Therefore in addition to the `withStoryContext` HOC, access to the underlying provider and context is possible:
+
+#### <StoryProvider
+
+```js
+import { StoryProvider } from 'use-storybook';
+
+addDecorator((storyFn, storyContext) => {
+  ...
+  
+  return (
+    <StoryProvider>
+      {storyFn()}
+    </StoryProvider>
+  );
+});
+```
+
+This function signature is exactly what the `withStoryContext` hoc provides.
+
+#### StoryContext
+
+```js
+import { StoryContext } from 'use-storybook';
+
+addDecorator((storyFn, storyContext) => {
+  ...
+  
+  return (
+    <StoryContext.Provider value={storyFN, storyContext, ...}>
+      {storyFn()}
+    </StoryContext.Provider>
+  );
+});
 ```
