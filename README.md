@@ -12,7 +12,7 @@ either with NPM or Yarn:
 
 or
 
-`npm install --save use-storybook`
+`npm install --save @alexanderjeurissen/use-storybook`
 
 ### Basic usage
 
@@ -21,7 +21,7 @@ A HOC is provided to make hooking the provider into your stories is as seamless 
 Add the HOC as a decorator in `./storybook/preview.js`:
 
 ```js
-import { withStoryContext } from 'use-storybook';
+import { withStoryContext } from '@alexanderjeurissen/use-storybook';
 
 addDecorator(withStoryContext);
 ```
@@ -29,7 +29,7 @@ addDecorator(withStoryContext);
 Use the provided hook anywhere in the story render tree:
 
 ```jsx
-import { useStorybook } from 'use-storybook';
+import { useStorybook } from '@alexanderjeurissen/use-storybook';
 
 export default {
   title: "Components|my-component",
@@ -49,7 +49,7 @@ There are cases where more finegrained control is desired. Therefore in addition
 #### <StoryProvider
 
 ```js
-import { StoryProvider } from 'use-storybook';
+import { StoryProvider } from '@alexanderjeurissen/use-storybook';
 
 addDecorator((storyFn, storyContext) => {
   ...
@@ -67,7 +67,7 @@ This function signature is exactly what the `withStoryContext` hoc provides.
 #### StoryContext
 
 ```js
-import { StoryContext } from 'use-storybook';
+import { StoryContext } from '@alexanderjeurissen/use-storybook';
 
 addDecorator((storyFn, storyContext) => {
   ...
