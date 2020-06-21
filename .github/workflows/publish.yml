@@ -6,17 +6,7 @@ on:
     - 'v[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
-  getinfo:
-    runs-on: ubuntu-latest
-    outputs:
-      npmtag: ${{ steps.data.outputs }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: node publish/version.js
-        id: data
-
   publish-npm:
-      needs: getinfo
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
@@ -28,11 +18,11 @@ jobs:
         - run: yarn build
         - run: npm publish --tag $TAG
           env:
-            TAG: ${{ needs.getinfo.outputs.npmtag }}
+            TAG: ${{ github.event.release.tag_name }}
             NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
 
   publish-gh:
-      needs: getinfo
+      needs: publish-npm
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
@@ -44,5 +34,5 @@ jobs:
         - run: yarn build
         - run: npm publish --tag $TAG
           env:
-            TAG: ${{ needs.getinfo.outputs.npmtag }}
+            TAG: ${{ github.event.release.tag_name }}
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
