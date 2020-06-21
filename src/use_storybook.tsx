@@ -11,7 +11,7 @@ interface ProviderProps {
   storyContext?: ObjType,
   children: React.Node
 }
-export const StoryBookProvider:React.FC<ProviderProps> = ({ storyFn, storyContext, children }) => (
+export const StoryProvider:React.FC<ProviderProps> = ({ storyFn, storyContext, children }) => (
   <StoryContext.Provider value={{ storyFn, storyContext }}>
     {children}
   </StoryContext.Provider>
