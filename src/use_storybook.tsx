@@ -17,8 +17,8 @@ export const StoryProvider:React.FC<ProviderProps> = ({ storyFn, storyContext, c
   </StoryContext.Provider>
 );
 
-export const withStoryContext = (storyFn: any, storyContext: ObjType) => (
-  <StoryContext.Provider value={{ storyFn, storyContext }}>
+export const withStoryContext = (storyFn: () => React.Node, storyContext: ObjType) => (
+  <StoryProvider storyFn={storyFn} storyContext={storyContext}>
     {storyFn()}
-  </StoryContext.Provider>
+  </StoryProvider>
 );
