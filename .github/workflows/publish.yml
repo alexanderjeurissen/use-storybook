@@ -16,6 +16,7 @@ jobs:
           with:
             node-version: 12
             registry-url: https://registry.npmjs.org/
+            scope: '<@OWNER>'
         - run: yarn install --frozen-lockfile
         - run: yarn build
         - run: npm publish
@@ -23,7 +24,7 @@ jobs:
             TAG: ${{ github.event.release.tag_name }}
             NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
 
-  publish-gh:
+  publish-gpr:
       needs: publish-npm
       runs-on: ubuntu-latest
       steps:
@@ -32,9 +33,9 @@ jobs:
           with:
             node-version: 12
             registry-url: https://npm.pkg.github.com/
+            scope: '<@OWNER>'
         - run: yarn install --frozen-lockfile
         - run: yarn build
-        - run: echo $TAG
         - run: npm publish
           env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
