@@ -18,8 +18,7 @@ jobs:
             registry-url: https://registry.npmjs.org/
         - run: yarn install --frozen-lockfile
         - run: yarn build
-        - run: echo $TAG
-        - run: npm publish --tag $TAG
+        - run: npm publish
           env:
             TAG: ${{ github.event.release.tag_name }}
             NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
@@ -36,7 +35,6 @@ jobs:
         - run: yarn install --frozen-lockfile
         - run: yarn build
         - run: echo $TAG
-        - run: npm publish --tag $TAG
+        - run: npm publish
           env:
-            TAG: ${{ github.event.release.tag_name }}
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
