@@ -12,7 +12,6 @@ jobs:
       npmtag: ${{ steps.data.outputs }}
     steps:
       - uses: actions/checkout@v2
-        working-directory: ./publish
       - run: node publish/version.js
         id: data
 
