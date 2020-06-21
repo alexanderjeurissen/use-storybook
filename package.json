@@ -1,6 +1,6 @@
 {
-  "name": "use-storybook",
-  "version": "1.1.3",
+  "name": "@alexanderjeurissen/use-storybook",
+  "version": "1.0.0",
   "description": "Storybook provider / hook add-on for consuming storyContext and storyFn anywhere in the story render tree.",
   "main": "./dist/use_storybook.js",
   "types": "./dist/use_storybook.d.ts",
@@ -28,7 +28,6 @@
     "test:dev": "cross-env ENV_CI=true DEV_MODE=true jest --watch --coverage --config jest.config.js",
     "test:jest": "cross-env ENV_CI=true jest --verbose --forceExit --coverage --config jest.config.js",
     "test:prettier": "prettier-check \"+(tests|src|examples)/**/**.+(js|ts)\" --tab-width 4 --print-width 120",
-    "preversion": "rm -rf dist/* && yarn install --frozen-lockfile && yarn build",
     "postversion": "git push --tags"
   },
   "keywords": [
