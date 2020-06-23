@@ -1,5 +1,5 @@
 # useStorybook - provider & hook
-![Publish](https://github.com/alexanderjeurissen/use-storybook/workflows/Publish/badge.svg?event=release)
+![Publish](https://github.com/alexanderjeurissen/use-storybook/workflows/Publish/badge.svg)
 
 This addon provides a decorator and hook to consume the `storyContext` and `storyFn` of the current active story anywhere in the render tree.
 It's especially useful when you want to inspect the story content, or use parts of the storyContext in utility functions or event tracking.
@@ -37,7 +37,7 @@ export default {
 
 export const Default = () => {
   const { storyContext, storyFn } = useStorybook();
-  
+
   ...
 }
 ```
@@ -53,7 +53,7 @@ import { StoryProvider } from '@alexanderjeurissen/use-storybook';
 
 addDecorator((storyFn, storyContext) => {
   ...
-  
+
   return (
     <StoryProvider>
       {storyFn()}
@@ -71,7 +71,7 @@ import { StoryContext } from '@alexanderjeurissen/use-storybook';
 
 addDecorator((storyFn, storyContext) => {
   ...
-  
+
   return (
     <StoryContext.Provider value={storyFN, storyContext, ...}>
       {storyFn()}
