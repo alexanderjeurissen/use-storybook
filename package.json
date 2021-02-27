@@ -43,7 +43,7 @@
     "component"
   ],
   "dependencies": {
-    "react": "^16.13.1"
+    "react": "^17.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
