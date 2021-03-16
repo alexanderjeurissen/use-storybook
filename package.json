@@ -40,7 +40,8 @@
     "react",
     "reactjs",
     "jsx",
-    "component"
+    "component",
+    "data-state"
   ],
   "dependencies": {
     "react": "^17.0.1"
