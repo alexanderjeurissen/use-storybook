@@ -1,6 +1,6 @@
 {
   "name": "@alexanderjeurissen/use-storybook",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Storybook provider / hook add-on for consuming storyContext and storyFn anywhere in the story render tree.",
   "main": "./dist/use_storybook.js",
   "types": "./dist/use_storybook.d.ts",
