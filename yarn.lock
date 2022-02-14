@@ -908,10 +908,10 @@
     readdirp "^2.2.1"
     upath "^1.1.1"
 
-"@types/node@^16.4.13":
-  version "16.4.13"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.4.13.tgz#7dfd9c14661edc65cccd43a29eb454174642370d"
-  integrity sha512-bLL69sKtd25w7p1nvg9pigE4gtKVpGTPojBFLMkGHXuUgap2sLqQt2qUnqmVCDfzGUL0DRNZP+1prIZJbMeAXg==
+"@types/node@^17.0.17":
+  version "17.0.17"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.17.tgz#a8ddf6e0c2341718d74ee3dc413a13a042c45a0c"
+  integrity sha512-e8PUNQy1HgJGV3iU/Bp2+D/DXh3PYeyli8LgIwsQcs1Ar1LoaWHSIT6Rw+H2rNJmiq6SNWiDytfx8+gYj7wDHw==
 
 ansi-styles@^3.2.1:
   version "3.2.1"
