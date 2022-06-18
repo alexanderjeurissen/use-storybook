@@ -8,7 +8,7 @@ It's especially useful when you want to inspect the story content, or use parts 
 
 either with NPM or Yarn:
 
-`yarn add use-storybook`
+`yarn add @alexanderjeurissen/use-storybook`
 
 or
 
